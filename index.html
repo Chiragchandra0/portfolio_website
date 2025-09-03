@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirag Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+    <script src="script.js"></script>
+    
+</head>
+<body class="bg-black text-white selection:bg-pink-500 selection:text-white">
+
+    <canvas id="starfield"></canvas>
+
+    <!-- Header -->
+    <header class="bg-black/80 backdrop-blur-sm p-4 fixed top-0 left-0 right-0 z-50 border-b-4 border-white">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold tracking-widest" style="font-family: 'Press Start 2P', cursive;">Chirag Chandra</a>
+            <div class="hidden md:flex space-x-8 text-lg">
+                <a href="#about">ABOUT ME</a>
+                <a href="#education">EDUCATION</a>
+                <a href="#projects">PROJECTS</a>
+                <a href="#services">SERVICES</a>
+                <a href="#contact">CONTACT</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-3xl">
+                &#9776;
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 flex flex-col space-y-4 text-lg items-center">
+            <a href="#about">ABOUT ME</a>
+            <a href="#education">EDUCATION</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#services">SERVICES</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 pt-24">
+
+        <!-- Home Section -->
+        <section id="home" class="h-screen flex items-center justify-center text-center relative -mt-24">
+             <div class="absolute inset-10 bg-cover bg-center z-0 opacity-70" style="background-image: url(download.gif);"></div>
+             <!-- Initial Vertical Nav -->
+             <nav id="initial-nav" class="flex flex-col space-y-6 text-lg p-4">
+                <a href="#about" class="pixel-button !bg-transparent !text-white">ABOUT</a>
+                <a href="#education" class="pixel-button !bg-transparent !text-white">EDUCATION</a>
+                <a href="#projects" class="pixel-button !bg-transparent !text-white">PROJECTS</a>
+                <a href="#services" class="pixel-button !bg-transparent !text-white">SERVICES</a>
+                <a href="#contact" class="pixel-button !bg-transparent !text-white">CONTACT</a>
+             </nav>
+            <div class="z-10">
+                <h1 class="text-4xl md:text-6xl mb-4" style="animation: float 5s ease-in-out infinite;">HELLO WORLD</h1>
+                <p class="text-xl md:text-3xl text-gray-300">
+                    <span id="typing-text"></span><span class="typing-cursor"></span>
+                </p>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20 animate-on-scroll">
+            <h2 class="text-3xl text-center mb-12">ABOUT ME</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/3">
+                    <div class="pixel-box p-2">
+                        <img src="download (12).jpeg" alt="Pixelated portrait of J. Holmes" class="w-full">
+                    </div>
+                </div>
+                <div class="w-full md:w-2/3 text-lg space-y-4">
+                    <p style="font-size: xx-large;">Hello there, Chirag Chandra here.</p>
+                    <p style="font-size: x-large;">I’m a final-year college student, freelance animator, and aspiring full-stack developer based in
+                        Delhi, India.
+                        Over the past few years, I’ve built skills in animation, UI/UX design, and web development
+                        (HTML,
+                        CSS, JavaScript, MERN), and recently I’ve expanded into data analytics—working with tools and
+                        techniques to uncover insights from data.</p>
+                    <p style="font-size: x-large;">I enjoy combining creativity and problem-solving—whether it’s designing smooth animations,
+                        developing interactive websites, or analyzing data to drive decisions.
+
+                        🚀 I’m open to opportunities in design, web development, and data analytics, where I can apply
+                        my
+                        skills to create meaningful impact.</p>
+                    <div class="mt-8" style="padding: 4rem 0 0 0;">
+                        <a href="https://drive.google.com/file/d/1WkUnMT7lYYXLW2wrMd2kVjwT3ZdI33A5/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pixel-button">VIEW RESUME</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-20 animate-on-scroll">
+            <h2 class="text-3xl text-center mb-12">EDUCATION</h2>
+            <div class="max-w-3xl mx-auto relative">
+                <img src="computer.png" alt="Pixel art computer monitor" class="w-full h-auto pointer-events-none">
+                <div id="computer-screen" class="absolute top-[13%] left-[16%] w-[68%] h-[50%] overflow-y-auto p-4 md:p-6 lg:p-8 text-sm md:text-base">
+                    <!-- Education Content 1 -->
+                    <div class="education-content">
+                        <h3 class="text-lg md:text-xl font-bold mb-1" style="font-size: x-large;">Delhi Technological University</h3>
+                        <p class="text-gray-200 mb-2 text-sm"  style="font-size: x-large;">2022 - 2026</p>
+                        <p  style="font-size: x-large;">B.Tech.  CGPA - 7.01</p>
+                    </div>
+                    <!-- Education Content 2 -->
+                    <div class="education-content hidden">
+                        <h3 class="text-lg md:text-xl font-bold mb-1"  style="font-size: x-large;">Mayur Public School</h3>
+                        <p class="text-gray-400 mb-2 text-sm"  style="font-size: x-large;">2021 - 2022</p>
+                        <p  style="font-size: x-large;">12th Board.  Percentage: 82%</p>
+                    </div>
+                    <!-- Education Content 3 -->
+                    <div class="education-content hidden">
+                        <h3 class="text-lg md:text-xl font-bold mb-1"  style="font-size: x-large;">Mayur Public School</h3>
+                        <p class="text-gray-400 mb-2 text-sm"  style="font-size: x-large;">2019 - 2020</p>
+                        <p  style="font-size: x-large;">10th Board.  Percentage: 84%</p>
+                    </div>
+                </div>
+                 <div class="text-center mt-4">
+                    <button id="prev-edu-slide" class="pixel-button text-2xl px-10 py-2 mr-2">&#x25B2;</button>
+                    <button id="next-edu-slide" class="pixel-button text-2xl px-10 py-2">&#x25BC;</button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 animate-on-scroll">
+            <h2 class="text-3xl text-center mb-12">PROJECTS</h2>
+            <div class="relative max-w-4xl mx-auto">
+                 <div class="slider-container pixel-box p-4">
+                    <div id="project-slider-wrapper" class="slider-wrapper">
+                        <!-- Project Card 1 -->
+                        <div class="slide">
+                             <div class="p-4 flex flex-col h-full">
+                                <img src="project1.png" alt="Project Alpha" class="w-full mb-2 border-2 border-white">
+                                <h3 class="text-xl mb-2 text-fuchsia-400">Password Manager Using Python</h3>
+                                <p class="text-gray-300 flex-grow">A secure password manager built with Python and the cryptography library. It uses Fernet symmetric encryption to securely store and manage your sensitive login credentials, all protected by a single master password.</p>
+                                <a href="https://github.com/Chiragchandra0/Password-Manager.git" target="_blank"><button class="pixel-button mt-4 !bg-fuchsia-0 ">VIEW</button></a>
+                            </div>
+                        </div>
+                        <!-- Project Card 2 -->
+                        <div class="slide">
+                             <div class="p-4 flex flex-col h-full">
+                                <img src="project2.png" alt="Project Beta" class="w-full mb-4 border-4 border-white">
+                                <h3 class="text-xl mb-2 text-yellow-300">Typing Speed Test</h3>
+                                <p class="text-gray-300 flex-grow">A fun and interactive Typing Speed Test application built with Python! Test your keyboarding skills, measure your Words Per Minute (WPM), and track your accuracy in real-time. Perfect for anyone looking to type faster.</p>
+                                 <a href="https://github.com/Chiragchandra0/Typing-speed-Test-Using-Python.git" target="_blank"><button class="pixel-button mt-4 ">VIEW</button></a>
+                            </div>
+                        </div>
+                        <!-- Project Card 3 -->
+                        <div class="slide">
+                             <div class="p-4 flex flex-col h-full">
+                                <img src="https://placehold.co/600x400/00ff9b/000000?text=Project+Gamma" alt="Project Gamma" class="w-full mb-4 border-4 border-white">
+                                <h3 class="text-xl mb-2 text-green-400">Project Gamma</h3>
+                                <p class="text-gray-300 flex-grow">A data visualization tool for tracking cryptocurrency prices, presented with a unique 8-bit interface.</p>
+                                <button class="pixel-button mt-4">VIEW</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="prev-slide" class="slider-nav prev">&#x25C0;</button>
+                <button id="next-slide" class="slider-nav next">&#x25B6;</button>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section id="services" class="py-20 animate-on-scroll">
+             <h2 class="text-3xl text-center mb-12">SERVICES</h2>
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                 <div class="pixel-box p-6 text-center">
+                     <h3 class="text-2xl mb-4 text-green-400">Web Development</h3>
+                     <p>Creating responsive, fast, and engaging websites from the ground up. Specializing in modern JavaScript frameworks and interactive animations.</p>
+                 </div>
+                 <div class="pixel-box p-6 text-center">
+                     <h3 class="text-2xl mb-4 text-fuchsia-400">UI/UX Design</h3>
+                     <p>Designing intuitive and beautiful user interfaces with a focus on user experience. From wireframes to pixel-perfect mockups.</p>
+                 </div>
+                 <div class="pixel-box p-6 text-center">
+                     <h3 class="text-2xl mb-4 text-yellow-300">Pixel Art & Assets</h3>
+                     <p>Crafting custom pixel art sprites, backgrounds, and assets for games, websites, and other digital media.</p>
+                 </div>
+             </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 animate-on-scroll">
+            <h2 class="text-3xl text-center mb-12">GET IN TOUCH</h2>
+            <div class="max-w-2xl mx-auto">
+                <!-- Gmail Window -->
+                <div class="gmail-window">
+                    <!-- Title Bar -->
+                    <div class="title-bar">
+                        <span>New Message</span>
+                        <div class="window-controls">
+                            <span class="control-dot min"></span>
+                            <span class="control-dot max"></span>
+                            <span class="control-dot close"></span>
+                        </div>
+                    </div>
+                    <!-- Email Form -->
+                    <form class="email-form">
+                        <div class="form-field">
+                            <span>To:</span>
+                            <input type="text" value="chiragchandra4872@gmail.com" readonly>
+                        </div>
+                        <div class="form-field">
+                            <label for="from_email">From:</label>
+                            <input type="email" id="from_email" required placeholder="your-email@example.com">
+                        </div>
+                        <div class="form-field">
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" required placeholder="Hello!">
+                        </div>
+                        <textarea class="message-body" placeholder="Your message here..." required></textarea>
+                        <div class="form-actions">
+                            <button type="submit" class="pixel-button !py-2 !px-8">SEND</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="text-center py-8 border-t-4 border-white mt-12">
+        <p>&copy; 2025 Chirag Chandra | ALL Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+
