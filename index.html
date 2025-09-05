@@ -16,7 +16,6 @@
 
     <canvas id="starfield"></canvas>
 
-    <!-- Header -->
     <header class="bg-black/80 backdrop-blur-sm p-4 fixed top-0 left-0 right-0 z-50 border-b-4 border-white">
         <nav class="container mx-auto flex justify-between items-center">
             <a href="#home" class="text-2xl font-bold tracking-widest" style="font-family: 'Press Start 2P', cursive;">Chirag Chandra</a>
@@ -24,6 +23,7 @@
                 <a href="#about">ABOUT ME</a>
                 <a href="#education">EDUCATION</a>
                 <a href="#projects">PROJECTS</a>
+                <a href="#skills">SKILLS</a>
                 <a href="#services">SERVICES</a>
                 <a href="#contact">CONTACT</a>
             </div>
@@ -31,28 +31,29 @@
                 &#9776;
             </button>
         </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden mt-4 flex flex-col space-y-4 text-lg items-center">
+        <div id="mobile-menu" class="hidden md:hidden mt-4 flex flex-col space-y-2 text-lg items-center">
             <a href="#about">ABOUT ME</a>
             <a href="#education">EDUCATION</a>
             <a href="#projects">PROJECTS</a>
+            <a href="#skills">SKILLS</a>
             <a href="#services">SERVICES</a>
             <a href="#contact">CONTACT</a>
         </div>
     </header>
-
+    <div class="name">
+            <h1>CHIRAG CHANDRA</h1>
+        </div>
     <main class="container mx-auto px-4 pt-24">
-
-        <!-- Home Section -->
+        
         <section id="home" class="h-screen flex items-center justify-center text-center relative -mt-24">
              <div class="absolute inset-10 bg-cover bg-center z-0 opacity-70" style="background-image: url(download.gif);"></div>
-             <!-- Initial Vertical Nav -->
              <nav id="initial-nav" class="flex flex-col space-y-6 text-lg p-4">
-                <a href="#about" class="pixel-button !bg-transparent !text-white">ABOUT</a>
-                <a href="#education" class="pixel-button !bg-transparent !text-white">EDUCATION</a>
-                <a href="#projects" class="pixel-button !bg-transparent !text-white">PROJECTS</a>
-                <a href="#services" class="pixel-button !bg-transparent !text-white">SERVICES</a>
-                <a href="#contact" class="pixel-button !bg-transparent !text-white">CONTACT</a>
+                <a href="#about" class="pixel-button !bg-transparen ">ABOUT</a>
+                <a href="#education" class="pixel-button ">EDUCATION</a>
+                <a href="#projects" class="pixel-button ">PROJECTS</a>
+                <a href="#skills" class="pixel-button ">SKILLS</a>
+                <a href="#services" class="pixel-button ">SERVICES</a>
+                <a href="#contact" class="pixel-button ">CONTACT</a>
              </nav>
             <div class="z-10">
                 <h1 class="text-4xl md:text-6xl mb-4" style="animation: float 5s ease-in-out infinite;">HELLO WORLD</h1>
@@ -62,13 +63,12 @@
             </div>
         </section>
 
-        <!-- About Me Section -->
         <section id="about" class="py-20 animate-on-scroll">
             <h2 class="text-3xl text-center mb-12">ABOUT ME</h2>
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="w-full md:w-1/3">
                     <div class="pixel-box p-2">
-                        <img src="download (12).jpeg" alt="Pixelated portrait of J. Holmes" class="w-full">
+                        <img src="download (12).jpeg" alt="Pixelated portrait of Chirag Chandra" class="w-full">
                     </div>
                 </div>
                 <div class="w-full md:w-2/3 text-lg space-y-4">
@@ -92,25 +92,21 @@
             </div>
         </section>
 
-        <!-- Education Section -->
         <section id="education" class="py-20 animate-on-scroll">
             <h2 class="text-3xl text-center mb-12">EDUCATION</h2>
             <div class="max-w-3xl mx-auto relative">
                 <img src="computer.png" alt="Pixel art computer monitor" class="w-full h-auto pointer-events-none">
                 <div id="computer-screen" class="absolute top-[13%] left-[16%] w-[68%] h-[50%] overflow-y-auto p-4 md:p-6 lg:p-8 text-sm md:text-base">
-                    <!-- Education Content 1 -->
                     <div class="education-content">
                         <h3 class="text-lg md:text-xl font-bold mb-1" style="font-size: x-large;">Delhi Technological University</h3>
                         <p class="text-gray-200 mb-2 text-sm"  style="font-size: x-large;">2022 - 2026</p>
                         <p  style="font-size: x-large;">B.Tech.  CGPA - 7.01</p>
                     </div>
-                    <!-- Education Content 2 -->
                     <div class="education-content hidden">
                         <h3 class="text-lg md:text-xl font-bold mb-1"  style="font-size: x-large;">Mayur Public School</h3>
                         <p class="text-gray-400 mb-2 text-sm"  style="font-size: x-large;">2021 - 2022</p>
                         <p  style="font-size: x-large;">12th Board.  Percentage: 82%</p>
                     </div>
-                    <!-- Education Content 3 -->
                     <div class="education-content hidden">
                         <h3 class="text-lg md:text-xl font-bold mb-1"  style="font-size: x-large;">Mayur Public School</h3>
                         <p class="text-gray-400 mb-2 text-sm"  style="font-size: x-large;">2019 - 2020</p>
@@ -124,14 +120,11 @@
             </div>
         </section>
 
-
-        <!-- Projects Section -->
         <section id="projects" class="py-20 animate-on-scroll">
             <h2 class="text-3xl text-center mb-12">PROJECTS</h2>
             <div class="relative max-w-4xl mx-auto">
                  <div class="slider-container pixel-box p-4">
                     <div id="project-slider-wrapper" class="slider-wrapper">
-                        <!-- Project Card 1 -->
                         <div class="slide">
                              <div class="p-4 flex flex-col h-full">
                                 <img src="project1.png" alt="Project Alpha" class="w-full mb-2 border-2 border-white">
@@ -140,7 +133,6 @@
                                 <a href="https://github.com/Chiragchandra0/Password-Manager.git" target="_blank"><button class="pixel-button mt-4 !bg-fuchsia-0 ">VIEW</button></a>
                             </div>
                         </div>
-                        <!-- Project Card 2 -->
                         <div class="slide">
                              <div class="p-4 flex flex-col h-full">
                                 <img src="project2.png" alt="Project Beta" class="w-full mb-4 border-4 border-white">
@@ -149,7 +141,6 @@
                                  <a href="https://github.com/Chiragchandra0/Typing-speed-Test-Using-Python.git" target="_blank"><button class="pixel-button mt-4 ">VIEW</button></a>
                             </div>
                         </div>
-                        <!-- Project Card 3 -->
                         <div class="slide">
                              <div class="p-4 flex flex-col h-full">
                                 <img src="https://placehold.co/600x400/00ff9b/000000?text=Project+Gamma" alt="Project Gamma" class="w-full mb-4 border-4 border-white">
@@ -165,7 +156,32 @@
             </div>
         </section>
         
-        <!-- Services Section -->
+        <section id="skills" class="py-20 animate-on-scroll">
+            <h2 class="text-3xl text-center mb-12">SKILLS</h2>
+            <div id="skills-container" class="relative w-full max-w-4xl mx-auto h-[500px] mt-8">
+                <div class="skill-icon" style="top: 10%; left: 15%;"><img src="icons8-adobe-after-effects-96.png" alt=""></div>
+                <div class="skill-icon" style="top: 20%; left: 80%;"><img src="icons8-clip-studio-paint-100.png" alt=""></div>
+                <div class="skill-icon" style="top: 80%; left: 55%;"><img src="animation-svgrepo-com.svg" alt=""></div>
+                <div class="skill-icon" style="top: 40%; left: 5%;"><img src="adobe-animate-svgrepo-com.svg" alt=""></div>
+                <div class="skill-icon" style="top: 55%; left: 85%;"><img src="c-.png" alt=""></div>
+                <div class="skill-icon" style="top: 70%; left: 20%;"><img src="letter-c.png" alt=""></div>
+                <div class="skill-icon" style="top: 5%; left: 40%;"><img src="css-3-svgrepo-com.svg" alt=""></div>
+                <div class="skill-icon" style="top: 85%; left: 80%;"><img src="figma-svgrepo-com.svg" alt=""></div>
+                <div class="skill-icon" style="top: 50%; left: 50%;"><img src="html-5-svgrepo-com.svg" alt=""></div>
+                <div class="skill-icon" style="top: 30%; left: 30%;"><img src="icons8-photoshop-96.png" alt=""></div>
+                <div class="skill-icon" style="top: 65%; left: 45%;"><img src="numpy-svgrepo-com.svg" alt=""></div>
+                <div class="skill-icon" style="top: 15%; left: 65%;"><img src="icons8-matplotlib-96.png" alt=""></div>
+                <div class="skill-icon" style="top: 80%; left: 5%;"><img src="icons8-power-bi.svg" alt=""></div>
+                <div class="skill-icon" style="top: 35%; left: 70%;"><img src="icons8-git-96.png" alt=""></div>
+                <div class="skill-icon" style="top: 88%; left: 35%;"><img src="icons8-blender-96.png" alt=""></div>
+                <div class="skill-icon" style="top: 45%; left: 90%;"><img src="javascript-svgrepo-com.svg" alt=""></div>
+                <div class="skill-icon" style="top: 75%; left: 70%;"><img src="sql-svgrepo-com.svg" alt=""></div>
+                <div class="skill-icon" style="top: 5%; left: 5%;"><svg fill="#FFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Adobe Photoshop</title><path d="M21.49 2.51c-1.33-1.33-3.1-2.07-4.99-2.07H7.5C4.47.44 2 2.91 2 5.94v12.12C2 21.09 4.47 23.56 7.5 23.56h8.99c1.89 0 3.66-.74 4.99-2.07 1.33-1.33 2.07-3.1 2.07-4.99V7.5c.01-1.89-.73-3.66-2.06-4.99zM10.5 17h-2L8 15.5h2.5V17zm4-3.5c0 1.38-1.12 2.5-2.5 2.5h-2c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h2c.83 0 1.5-.67 1.5-1.5S12.33 12 11.5 12H10V7h2.5c1.38 0 2.5 1.12 2.5 2.5S13.88 12 12.5 12c.83 0 1.5.67 1.5 1.5z"/></svg></div>
+                <div class="skill-icon" style="top: 25%; left: 50%;"><svg fill="#FFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Git</title><path d="M22.2 9.6c-.2-.4-.7-.6-1.2-.6h-3.9V5.7c0-.5-.4-.9-.9-.9s-.9.4-.9.9v3.3H9.4V5.7c0-.5-.4-.9-.9-.9s-.9.4-.9.9v3.3H3c-.5 0-1 .2-1.2.6-.3.4-.3.9-.1 1.3l8.6 11.2c.4.5 1.3.5 1.7 0l8.6-11.2c.3-.5.3-1 0-1.4zM12 19.4L5.1 10.5h13.8L12 19.4zM12 4.4c-2 0-3.6 1.6-3.6 3.6s1.6 3.6 3.6 3.6 3.6-1.6 3.6-3.6-1.6-3.6-3.6-3.6zm0 5.7c-1.2 0-2.1-1-2.1-2.1s1-2.1 2.1-2.1 2.1 1 2.1 2.1-1 2.1-2.1 2.1z"/></svg></div>
+                <div class="skill-icon" style="top: 60%; left: 5%;"><svg fill="#FFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Blender</title><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.5 4h3v3h-3V6zm3 4.5h3v3h-3v-3zm-3 3h3v3h-3v-3zm-3-3h3v3h-3v-3z"/></svg></div>
+            </div>
+        </section>
+
         <section id="services" class="py-20 animate-on-scroll">
              <h2 class="text-3xl text-center mb-12">SERVICES</h2>
              <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -184,13 +200,10 @@
              </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="py-20 animate-on-scroll">
             <h2 class="text-3xl text-center mb-12">GET IN TOUCH</h2>
             <div class="max-w-2xl mx-auto">
-                <!-- Gmail Window -->
                 <div class="gmail-window">
-                    <!-- Title Bar -->
                     <div class="title-bar">
                         <span>New Message</span>
                         <div class="window-controls">
@@ -199,7 +212,6 @@
                             <span class="control-dot close"></span>
                         </div>
                     </div>
-                    <!-- Email Form -->
                     <form class="email-form">
                         <div class="form-field">
                             <span>To:</span>

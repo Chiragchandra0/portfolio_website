@@ -20,7 +20,10 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Press Start 2P', cursive;
         }
-
+        .name{
+            display: flex;
+            justify-content: center;
+        }
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
@@ -64,7 +67,6 @@
             padding: 1rem 2rem;
             background-color: transparent;
             color: white;
-            /* box-shadow: 4px 4px 0px var(--pixel-border-color); */
             transition: all 0.1s ease-in-out;
             cursor: pointer;
         }
@@ -166,7 +168,7 @@
         /* Computer Screen Text */
         #computer-screen {
             font-family: 'VT323', monospace;
-            color: #00ff9b; /* Classic green computer text */
+            color: #00ff9b;
             text-shadow: 0 0 3px #00ff9b, 0 0 8px #00ff9b;
             background: 
                 linear-gradient(rgba(0,0,0,0.15) 50%, transparent 50%);
@@ -202,7 +204,7 @@
         .slide {
             min-width: 100%;
             box-sizing: border-box;
-            padding: 0 1rem; /* Spacing between slides */
+            padding: 0 1rem;
         }
         .slider-nav {
             position: absolute;
@@ -234,7 +236,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Places canvas behind all content */
+            z-index: -1;
         }
         .gmail-window {
             border: 4px solid var(--pixel-border-color);
@@ -243,7 +245,7 @@
                 4px -4px 0px 0px var(--pixel-border-color),
                 4px 4px 0px 0px var(--pixel-border-color),
                 -4px -4px 0px 0px var(--pixel-border-color);
-            background-color: #2d2d2d; /* Dark grey for the window body */
+            background-color: #2d2d2d;
             transition: all 0.2s ease-out;
         }
         .gmail-window:hover {
@@ -258,7 +260,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #4a4a4a; /* A lighter grey for the title bar */
+            background-color: #4a4a4a;
             padding: 0.5rem 1rem;
             border-bottom: 4px solid var(--pixel-border-color);
             font-family: 'Press Start 2P', cursive;
@@ -327,3 +329,56 @@
             padding-top: 1rem;
             text-align: left;
         }
+
+        /* Styles for the skills animation container */
+        #skills-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .skill-icon {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            animation: random-move 20s ease-in-out infinite;
+        }
+        .skill-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--pixel-text);
+        }
+        
+        @keyframes random-move {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(30px, -50px); }
+            20% { transform: translate(-40px, 20px); }
+            30% { transform: translate(60px, 50px); }
+            40% { transform: translate(-20px, -60px); }
+            50% { transform: translate(50px, 30px); }
+            60% { transform: translate(-60px, -30px); }
+            70% { transform: translate(20px, 70px); }
+            80% { transform: translate(50px, -20px); }
+            90% { transform: translate(-30px, 40px); }
+        }
+
+        .skill-icon:nth-child(1) { animation-duration: 22s; animation-delay: -5s; }
+        .skill-icon:nth-child(2) { animation-duration: 25s; animation-delay: -2s; }
+        .skill-icon:nth-child(3) { animation-duration: 20s; animation-delay: -8s; }
+        .skill-icon:nth-child(4) { animation-duration: 23s; animation-delay: -12s; }
+        .skill-icon:nth-child(5) { animation-duration: 18s; animation-delay: -1s; }
+        .skill-icon:nth-child(6) { animation-duration: 26s; animation-delay: -10s; }
+        .skill-icon:nth-child(7) { animation-duration: 21s; animation-delay: -3s; }
+        .skill-icon:nth-child(8) { animation-duration: 24s; animation-delay: -15s; }
+        .skill-icon:nth-child(9) { animation-duration: 19s; animation-delay: -7s; }
+        .skill-icon:nth-child(10) { animation-duration: 27s; animation-delay: -11s; }
+        .skill-icon:nth-child(11) { animation-duration: 22s; animation-delay: -4s; }
+        .skill-icon:nth-child(12) { animation-duration: 20s; animation-delay: -9s; }
+        .skill-icon:nth-child(13) { animation-duration: 25s; animation-delay: -14s; }
+        .skill-icon:nth-child(14) { animation-duration: 23s; animation-delay: -6s; }
+        .skill-icon:nth-child(15) { animation-duration: 18s; animation-delay: -13s; }
+        .skill-icon:nth-child(16) { animation-duration: 26s; animation-delay: -2s; }
+        .skill-icon:nth-child(17) { animation-duration: 21s; animation-delay: -8s; }
+        .skill-icon:nth-child(18) { animation-duration: 24s; animation-delay: -1s; }
+        .skill-icon:nth-child(19) { animation-duration: 19s; animation-delay: -10s; }
+        .skill-icon:nth-child(20) { animation-duration: 27s; animation-delay: -5s; }
+        .skill-icon:nth-child(21) { animation-duration: 22s; animation-delay: -12s; }
+        .skill-icon:nth-child(22) { animation-duration: 20s; animation-delay: -7s; }

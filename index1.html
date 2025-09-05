@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirag Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pixel-bg: #000000;
+            --pixel-primary: #ffffff;
+            --pixel-secondary: #6d2eff;
+            --pixel-accent: #ff8548;
+            --pixel-text: #ffffff;
+            --pixel-border-color: #ffffff;
+        }
+
+        body {
+            background-color: var(--pixel-bg);
+            color: var(--pixel-text);
+            font-family: 'VT323', monospace;
+            font-size: 20px;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Press Start 2P', cursive;
+        }
+        .name{
+            display: flex;
+            justify-content: center;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Pixelated Border Box Style */
+        .pixel-box {
+            border: 4px solid var(--pixel-border-color);
+            box-shadow: 
+                -4px 4px 0px 0px var(--pixel-border-color),
+                4px -4px 0px 0px var(--pixel-border-color),
+                4px 4px 0px 0px var(--pixel-border-color),
+                -4px -4px 0px 0px var(--pixel-border-color);
+            position: relative;
+            background-color: rgba(0,0,0,0.5);
+            transition: all 0.2s ease-out;
+        }
+        
+        .pixel-box:hover {
+            transform: translate(2px, -2px);
+            box-shadow: 
+                -6px 6px 0px 0px var(--pixel-border-color),
+                6px -6px 0px 0px var(--pixel-border-color),
+                6px 6px 0px 0px var(--pixel-border-color),
+                -6px -6px 0px 0px var(--pixel-border-color),
+                0 0 20px rgba(0, 255, 155, 0.5);
+        }
+
+        .pixel-box img {
+            transition: transform 0.3s ease-out;
+        }
+
+        .pixel-box:hover img {
+            transform: scale(1.05);
+        }
+
+        .pixel-button {
+            font-family: 'Press Start 2P', cursive;
+            border: 2px solid var(--pixel-border-color);
+            border-radius: 4rem;
+            padding: 1rem 2rem;
+            background-color: transparent;
+            color: white;
+            transition: all 0.1s ease-in-out;
+            cursor: pointer;
+        }
+
+        .pixel-button:hover {
+            background-color: white;
+            color: #000;
+            transform: translate(2px, 2px);
+            filter: drop-shadow(0 0 20px white);
+        }
+        
+        .pixel-button:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px var(--pixel-border-color);
+        }
+
+        /* Animations for scrolling */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typing animation */
+        .typing-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2em;
+            background-color: var(--pixel-primary);
+            animation: blink 1s step-end infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            from, to { background-color: transparent; }
+            50% { background-color: var(--pixel-primary); }
+        }
+
+        /* Header link hover effect */
+        nav a {
+            position: relative;
+            text-decoration: none;
+            color: var(--pixel-text);
+            transition: color 0.3s;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--pixel-primary);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        nav a:hover {
+            color: var(--pixel-primary);
+        }
+        nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        /* Initial Vertical Nav */
+        #initial-nav {
+            position: absolute;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: opacity 0.4s ease-out;
+        }
+        
+        /* Sticky Header Transition */
+        header {
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+            opacity: 0;
+            transform: translateY(-100%);
+            pointer-events: none;
+        }
+        
+        body.scrolled header {
+             opacity: 1;
+             transform: translateY(0);
+             pointer-events: auto;
+        }
+        
+        body.scrolled #initial-nav {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Computer Screen Text */
+        #computer-screen {
+            font-family: 'VT323', monospace;
+            color: #00ff9b;
+            text-shadow: 0 0 3px #00ff9b, 0 0 8px #00ff9b;
+            background: 
+                linear-gradient(rgba(0,0,0,0.15) 50%, transparent 50%);
+            background-size: 100% 4px;
+            animation: flicker 0.05s infinite;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.95; }
+            100% { opacity: 1; }
+        }
+
+        .education-content {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .education-content.active {
+            opacity: 1;
+        }
+
+        /* Slider Styles */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .slider-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 0 1rem;
+        }
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--pixel-primary);
+            font-size: 3rem;
+            cursor: pointer;
+            z-index: 10;
+            text-shadow: 2px 2px #000;
+            transition: transform 0.2s;
+        }
+        .slider-nav:hover {
+            color: var(--pixel-secondary);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .slider-nav.prev {
+            left: -20px;
+        }
+        .slider-nav.next {
+            right: -20px;
+        }
+
+        #starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .gmail-window {
+            border: 4px solid var(--pixel-border-color);
+            box-shadow: 
+                -4px 4px 0px 0px var(--pixel-border-color),
+                4px -4px 0px 0px var(--pixel-border-color),
+                4px 4px 0px 0px var(--pixel-border-color),
+                -4px -4px 0px 0px var(--pixel-border-color);
+            background-color: #2d2d2d;
+            transition: all 0.2s ease-out;
+        }
+        .gmail-window:hover {
+             box-shadow: 
+                -6px 6px 0px 0px var(--pixel-border-color),
+                6px -6px 0px 0px var(--pixel-border-color),
+                6px 6px 0px 0px var(--pixel-border-color),
+                -6px -6px 0px 0px var(--pixel-border-color),
+                0 0 20px rgba(0, 255, 155, 0.5);
+        }
+        .title-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #4a4a4a;
+            padding: 0.5rem 1rem;
+            border-bottom: 4px solid var(--pixel-border-color);
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+        }
+
+        .window-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .control-dot {
+            width: 15px;
+            height: 15px;
+            border: 2px solid var(--pixel-border-color);
+        }
+        .control-dot.min { background-color: #ffbd2e; }
+        .control-dot.max { background-color: #27c93f; }
+        .control-dot.close { background-color: #ff5f56; }
+
+        .email-form {
+            padding: 1rem 1.5rem;
+        }
+
+        .form-field {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #555;
+            padding: 0.75rem 0.25rem;
+            font-size: 1.1rem;
+        }
+        .form-field:focus-within {
+            border-bottom-color: var(--pixel-primary);
+        }
+
+        .form-field span, .form-field label {
+            color: #aaa;
+            margin-right: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .form-field input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--pixel-text);
+        }
+        .form-field input[readonly] {
+            color: #ccc;
+        }
+
+        .message-body {
+            width: 100%;
+            height: 150px;
+            background: transparent;
+            border: none;
+            outline: none;
+            resize: none;
+            padding: 1rem 0.25rem;
+            font-size: 1.1rem;
+            color: var(--pixel-text);
+        }
+
+        .form-actions {
+            padding-top: 1rem;
+            text-align: left;
+        }
+
+        /* Styles for the skills animation container */
+        #skills-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .skill-icon {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            animation: random-move 20s ease-in-out infinite;
+        }
+        .skill-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--pixel-text);
+        }
+        
+        @keyframes random-move {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(30px, -50px); }
+            20% { transform: translate(-40px, 20px); }
+            30% { transform: translate(60px, 50px); }
+            40% { transform: translate(-20px, -60px); }
+            50% { transform: translate(50px, 30px); }
+            60% { transform: translate(-60px, -30px); }
+            70% { transform: translate(20px, 70px); }
+            80% { transform: translate(50px, -20px); }
+            90% { transform: translate(-30px, 40px); }
+        }
+
+        .skill-icon:nth-child(1) { animation-duration: 22s; animation-delay: -5s; }
+        .skill-icon:nth-child(2) { animation-duration: 25s; animation-delay: -2s; }
+        .skill-icon:nth-child(3) { animation-duration: 20s; animation-delay: -8s; }
+        .skill-icon:nth-child(4) { animation-duration: 23s; animation-delay: -12s; }
+        .skill-icon:nth-child(5) { animation-duration: 18s; animation-delay: -1s; }
+        .skill-icon:nth-child(6) { animation-duration: 26s; animation-delay: -10s; }
+        .skill-icon:nth-child(7) { animation-duration: 21s; animation-delay: -3s; }
+        .skill-icon:nth-child(8) { animation-duration: 24s; animation-delay: -15s; }
+        .skill-icon:nth-child(9) { animation-duration: 19s; animation-delay: -7s; }
+        .skill-icon:nth-child(10) { animation-duration: 27s; animation-delay: -11s; }
+        .skill-icon:nth-child(11) { animation-duration: 22s; animation-delay: -4s; }
+        .skill-icon:nth-child(12) { animation-duration: 20s; animation-delay: -9s; }
+        .skill-icon:nth-child(13) { animation-duration: 25s; animation-delay: -14s; }
+        .skill-icon:nth-child(14) { animation-duration: 23s; animation-delay: -6s; }
+        .skill-icon:nth-child(15) { animation-duration: 18s; animation-delay: -13s; }
+        .skill-icon:nth-child(16) { animation-duration: 26s; animation-delay: -2s; }
+        .skill-icon:nth-child(17) { animation-duration: 21s; animation-delay: -8s; }
+        .skill-icon:nth-child(18) { animation-duration: 24s; animation-delay: -1s; }
+        .skill-icon:nth-child(19) { animation-duration: 19s; animation-delay: -10s; }
+        .skill-icon:nth-child(20) { animation-duration: 27s; animation-delay: -5s; }
+        .skill-icon:nth-child(21) { animation-duration: 22s; animation-delay: -12s; }
+        .skill-icon:nth-child(22) { animation-duration: 20s; animation-delay: -7s; }
+
+    </style>
+    
+</head>
+<body class="bg-black text-white selection:bg-pink-500 selection:text-white">
+
+    <canvas id="starfield"></canvas>
+
+    <header class="bg-black/80 backdrop-blur-sm p-4 fixed top-0 left-0 right-0 z-50 border-b-4 border-white">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold tracking-widest" style="font-family: 'Press Start 2P', cursive;">Chirag Chandra</a>
+            <div class="hidden md:flex space-x-8 text-lg">
+                <a href="#about">ABOUT ME</a>
+                <a href="#education">EDUCATION</a>
+                <a href="#projects">PROJECTS</a>
+                <a href="#skills">SKILLS</a>
+                <a href="#services">SERVICES</a>
+                <a href="#contact">CONTACT</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-3xl">
+                &#9776;
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden mt-4 flex flex-col space-y-2 text-lg items-center">
+            <a href="#about">ABOUT ME</a>
+            <a href="#education">EDUCATION</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#skills">SKILLS</a>
+            <a href="#services">SERVICES</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+    </header>
+    <div class="name">
+            <h1>CHIRAG CHANDRA</h1>
+        </div>
+    <main class="container mx-auto px-4 pt-24">
+        
+        <section id="home" class="h-screen flex items-center justify-center text-center relative -mt-24">
+             <div class="absolute inset-10 bg-cover bg-center z-0 opacity-70" style="background-image: url(download.gif);"></div>
+             <nav id="initial-nav" class="flex flex-col space-y-6 text-lg p-4">
+                <a href="#about" class="pixel-button !bg-transparen ">ABOUT</a>
+                <a href="#education" class="pixel-button ">EDUCATION</a>
+                <a href="#projects" class="pixel-button ">PROJECTS</a>
+                <a href="#skills" class="pixel-button ">SKILLS</a>
+                <a href="#services" class="pixel-button ">SERVICES</a>
+                <a href="#contact" class="pixel-button ">CONTACT</a>
+             </nav>
+            <div class="z-10">
+                <h1 class="text-4xl md:text-6xl mb-4" style="animation: float 5s ease-in-out infinite;">HELLO WORLD</h1>
+                <p class="text-xl md:text-3xl text-gray-300">
+                    <span id="typing-text"></span><span class="typing-cursor"></span>
+                </p>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 animate-on-scroll">
+            <h2 class="text-3xl text-center mb-12">ABOUT ME</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/3">
+                    <div class="pixel-box p-2">
+                        <img src="download (12).jpeg" alt="Pixelated portrait of Chirag Chandra" class="w-full">
+                    </div>
+                </div>
+                <div class="w-full md:w-2/3 text-lg space-y-4">
+                    <p style="font-size: xx-large;">Hello there, Chirag Chandra here.</p>
+                    <p style="font-size: x-large;">I’m a final-year college student, freelance animator, and aspiring full-stack developer based in
+                        Delhi, India.
+                        Over the past few years, I’ve built skills in animation, UI/UX design, and web development
+                        (HTML,
+                        CSS, JavaScript, MERN), and recently I’ve expanded into data analytics—working with tools and
+                        techniques to uncover insights from data.</p>
+                    <p style="font-size: x-large;">I enjoy combining creativity and problem-solving—whether it’s designing smooth animations,
+                        developing interactive websites, or analyzing data to drive decisions.
+
+                        🚀 I’m open to opportunities in design, web development, and data analytics, where I can apply
+                        my
+                        skills to create meaningful impact.</p>
+                    <div class="mt-8" style="padding: 4rem 0 0 0;">
+                        <a href="https://drive.google.com/file/d/1WkUnMT7lYYXLW2wrMd2kVjwT3ZdI33A5/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pixel-button">VIEW RESUME</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="py-20 animate-on-scroll">
+            <h2 class="text-3xl text-center mb-12">EDUCATION</h2>
+            <div class="max-w-3xl mx-auto relative">
+                <img src="computer.png" alt="Pixel art computer monitor" class="w-full h-auto pointer-events-none">
+                <div id="computer-screen" class="absolute top-[13%] left-[16%] w-[68%] h-[50%] overflow-y-auto p-4 md:p-6 lg:p-8 text-sm md:text-base">
+                    <div class="education-content">
+                        <h3 class="text-lg md:text-xl font-bold mb-1" style="font-size: x-large;">Delhi Technological University</h3>
+                        <p class="text-gray-200 mb-2 text-sm"  style="font-size: x-large;">2022 - 2026</p>
+                        <p  style="font-size: x-large;">B.Tech.  CGPA - 7.01</p>
+                    </div>
+                    <div class="education-content hidden">
+                        <h3 class="text-lg md:text-xl font-bold mb-1"  style="font-size: x-large;">Mayur Public School</h3>
+                        <p class="text-gray-400 mb-2 text-sm"  style="font-size: x-large;">2021 - 2022</p>
+                        <p  style="font-size: x-large;">12th Board.  Percentage: 82%</p>
+                    </div>
+                    <div class="education-content hidden">
+                        <h3 class="text-lg md:text-xl font-bold mb-1"  style="font-size: x-large;">Mayur Public School</h3>
+                        <p class="text-gray-400 mb-2 text-sm"  style="font-size: x-large;">2019 - 2020</p>
+                        <p  style="font-size: x-large;">10th Board.  Percentage: 84%</p>
+                    </div>
+                </div>
+                 <div class="text-center mt-4">
+                    <button id="prev-edu-slide" class="pixel-button text-2xl px-10 py-2 mr-2">&#x25B2;</button>
+                    <button id="next-edu-slide" class="pixel-button text-2xl px-10 py-2">&#x25BC;</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20 animate-on-scroll">
+            <h2 class="text-3xl text-center mb-12">PROJECTS</h2>
+            <div class="relative max-w-4xl mx-auto">
+                 <div class="slider-container pixel-box p-4">
+                    <div id="project-slider-wrapper" class="slider-wrapper">
+                        <div class="slide">
+                             <div class="p-4 flex flex-col h-full">
+                                <img src="project1.png" alt="Project Alpha" class="w-full mb-2 border-2 border-white">
+                                <h3 class="text-xl mb-2 text-fuchsia-400">Password Manager Using Python</h3>
+                                <p class="text-gray-300 flex-grow">A secure password manager built with Python and the cryptography library. It uses Fernet symmetric encryption to securely store and manage your sensitive login credentials, all protected by a single master password.</p>
+                                <a href="https://github.com/Chiragchandra0/Password-Manager.git" target="_blank"><button class="pixel-button mt-4 !bg-fuchsia-0 ">VIEW</button></a>
+                            </div>
+                        </div>
+                        <div class="slide">
+                             <div class="p-4 flex flex-col h-full">
+                                <img src="project2.png" alt="Project Beta" class="w-full mb-4 border-4 border-white">
+                                <h3 class="text-xl mb-2 text-yellow-300">Typing Speed Test</h3>
+                                <p class="text-gray-300 flex-grow">A fun and interactive Typing Speed Test application built with Python! Test your keyboarding skills, measure your Words Per Minute (WPM), and track your accuracy in real-time. Perfect for anyone looking to type faster.</p>
+                                 <a href="https://github.com/Chiragchandra0/Typing-speed-Test-Using-Python.git" target="_blank"><button class="pixel-button mt-4 ">VIEW</button></a>
+                            </div>
+                        </div>
+                        <div class="slide">
+                             <div class="p-4 flex flex-col h-full">
+                                <img src="https://placehold.co/600x400/00ff9b/000000?text=Project+Gamma" alt="Project Gamma" class="w-full mb-4 border-4 border-white">
+                                <h3 class="text-xl mb-2 text-green-400">Project Gamma</h3>
+                                <p class="text-gray-300 flex-grow">A data visualization tool for tracking cryptocurrency prices, presented with a unique 8-bit interface.</p>
+                                <button class="pixel-button mt-4">VIEW</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="prev-slide" class="slider-nav prev">&#x25C0;</button>
+                <button id="next-slide" class="slider-nav next">&#x25B6;</button>
+            </div>
+        </section>
+        
+        <section id="skills" class="py-20 animate-on-scroll">
+            <h2 class="text-3xl text-center mb-12">SKILLS</h2>
+            <div id="skills-container" class="relative w-full max-w-4xl mx-auto h-[500px] mt-8">
+                <div class="skill-icon" style="top: 10%; left: 15%;"><img src="icons8-adobe-after-effects-96.png" alt=""></div>
+                <div class="skill-icon" style="top: 20%; left: 80%;"><img src="icons8-clip-studio-paint-100.png" alt=""></div>
+                <div class="skill-icon" style="top: 80%; left: 55%;"><img src="animation-svgrepo-com.svg" alt=""></div>
+                <div class="skill-icon" style="top: 40%; left: 5%;"><img src="adobe-animate-svgrepo-com.svg" alt=""></div>
+                <div class="skill-icon" style="top: 55%; left: 85%;"><img src="c-.png" alt=""></div>
+                <div class="skill-icon" style="top: 70%; left: 20%;"><img src="letter-c.png" alt=""></div>
+                <div class="skill-icon" style="top: 5%; left: 40%;"><img src="css-3-svgrepo-com.svg" alt=""></div>
+                <div class="skill-icon" style="top: 85%; left: 80%;"><img src="figma-svgrepo-com.svg" alt=""></div>
+                <div class="skill-icon" style="top: 50%; left: 50%;"><img src="html-5-svgrepo-com.svg" alt=""></div>
+                <div class="skill-icon" style="top: 30%; left: 30%;"><img src="icons8-photoshop-96.png" alt=""></div>
+                <div class="skill-icon" style="top: 65%; left: 45%;"><img src="numpy-svgrepo-com.svg" alt=""></div>
+                <div class="skill-icon" style="top: 15%; left: 65%;"><img src="icons8-matplotlib-96.png" alt=""></div>
+                <div class="skill-icon" style="top: 80%; left: 5%;"><img src="icons8-power-bi.svg" alt=""></div>
+                <div class="skill-icon" style="top: 35%; left: 70%;"><img src="icons8-git-96.png" alt=""></div>
+                <div class="skill-icon" style="top: 88%; left: 35%;"><img src="icons8-blender-96.png" alt=""></div>
+                <div class="skill-icon" style="top: 45%; left: 90%;"><img src="javascript-svgrepo-com.svg" alt=""></div>
+                <div class="skill-icon" style="top: 75%; left: 70%;"><img src="sql-svgrepo-com.svg" alt=""></div>
+                <div class="skill-icon" style="top: 5%; left: 5%;"><svg fill="#FFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Adobe Photoshop</title><path d="M21.49 2.51c-1.33-1.33-3.1-2.07-4.99-2.07H7.5C4.47.44 2 2.91 2 5.94v12.12C2 21.09 4.47 23.56 7.5 23.56h8.99c1.89 0 3.66-.74 4.99-2.07 1.33-1.33 2.07-3.1 2.07-4.99V7.5c.01-1.89-.73-3.66-2.06-4.99zM10.5 17h-2L8 15.5h2.5V17zm4-3.5c0 1.38-1.12 2.5-2.5 2.5h-2c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h2c.83 0 1.5-.67 1.5-1.5S12.33 12 11.5 12H10V7h2.5c1.38 0 2.5 1.12 2.5 2.5S13.88 12 12.5 12c.83 0 1.5.67 1.5 1.5z"/></svg></div>
+                <div class="skill-icon" style="top: 25%; left: 50%;"><svg fill="#FFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Git</title><path d="M22.2 9.6c-.2-.4-.7-.6-1.2-.6h-3.9V5.7c0-.5-.4-.9-.9-.9s-.9.4-.9.9v3.3H9.4V5.7c0-.5-.4-.9-.9-.9s-.9.4-.9.9v3.3H3c-.5 0-1 .2-1.2.6-.3.4-.3.9-.1 1.3l8.6 11.2c.4.5 1.3.5 1.7 0l8.6-11.2c.3-.5.3-1 0-1.4zM12 19.4L5.1 10.5h13.8L12 19.4zM12 4.4c-2 0-3.6 1.6-3.6 3.6s1.6 3.6 3.6 3.6 3.6-1.6 3.6-3.6-1.6-3.6-3.6-3.6zm0 5.7c-1.2 0-2.1-1-2.1-2.1s1-2.1 2.1-2.1 2.1 1 2.1 2.1-1 2.1-2.1 2.1z"/></svg></div>
+                <div class="skill-icon" style="top: 60%; left: 5%;"><svg fill="#FFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Blender</title><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.5 4h3v3h-3V6zm3 4.5h3v3h-3v-3zm-3 3h3v3h-3v-3zm-3-3h3v3h-3v-3z"/></svg></div>
+            </div>
+        </section>
+
+        <section id="services" class="py-20 animate-on-scroll">
+             <h2 class="text-3xl text-center mb-12">SERVICES</h2>
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                 <div class="pixel-box p-6 text-center">
+                     <h3 class="text-2xl mb-4 text-green-400">Web Development</h3>
+                     <p>Creating responsive, fast, and engaging websites from the ground up. Specializing in modern JavaScript frameworks and interactive animations.</p>
+                 </div>
+                 <div class="pixel-box p-6 text-center">
+                     <h3 class="text-2xl mb-4 text-fuchsia-400">UI/UX Design</h3>
+                     <p>Designing intuitive and beautiful user interfaces with a focus on user experience. From wireframes to pixel-perfect mockups.</p>
+                 </div>
+                 <div class="pixel-box p-6 text-center">
+                     <h3 class="text-2xl mb-4 text-yellow-300">Pixel Art & Assets</h3>
+                     <p>Crafting custom pixel art sprites, backgrounds, and assets for games, websites, and other digital media.</p>
+                 </div>
+             </div>
+        </section>
+
+        <section id="contact" class="py-20 animate-on-scroll">
+            <h2 class="text-3xl text-center mb-12">GET IN TOUCH</h2>
+            <div class="max-w-2xl mx-auto">
+                <div class="gmail-window">
+                    <div class="title-bar">
+                        <span>New Message</span>
+                        <div class="window-controls">
+                            <span class="control-dot min"></span>
+                            <span class="control-dot max"></span>
+                            <span class="control-dot close"></span>
+                        </div>
+                    </div>
+                    <form class="email-form">
+                        <div class="form-field">
+                            <span>To:</span>
+                            <input type="text" value="chiragchandra4872@gmail.com" readonly>
+                        </div>
+                        <div class="form-field">
+                            <label for="from_email">From:</label>
+                            <input type="email" id="from_email" required placeholder="your-email@example.com">
+                        </div>
+                        <div class="form-field">
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" required placeholder="Hello!">
+                        </div>
+                        <textarea class="message-body" placeholder="Your message here..." required></textarea>
+                        <div class="form-actions">
+                            <button type="submit" class="pixel-button !py-2 !px-8">SEND</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="text-center py-8 border-t-4 border-white mt-12">
+        <p>&copy; 2025 Chirag Chandra | ALL Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileMenu.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+    });
+
+    // Typing Animation
+    const typingTextElement = document.getElementById('typing-text');
+    const textToType = "I build cool things for the web.";
+    let charIndex = 0;
+
+    function type() {
+        if (charIndex < textToType.length) {
+            typingTextElement.textContent += textToType.charAt(charIndex);
+            charIndex++;
+            setTimeout(type, 100);
+        }
+    }
+    type();
+
+    // Starfield Background
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    let numStars;
+
+    function setCanvasSize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        numStars = Math.floor((canvas.width * canvas.height) / 7000);
+    }
+
+    function createStars() {
+        stars = [];
+        for (let i = 0; i < numStars; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 1.5 + 0.5,
+                alpha: Math.random() * 0.5 + 0.5,
+                speed: Math.random() * 0.2 + 0.1,
+                twinkleSpeed: Math.random() * 0.015,
+                twinkleDirection: 1,
+            });
+        }
+    }
+
+    function drawStars() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < numStars; i++) {
+            let star = stars[i];
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+            ctx.fill();
+        }
+    }
+
+    function updateStars() {
+        for (let i = 0; i < numStars; i++) {
+            let star = stars[i];
+            star.y -= star.speed;
+            if (star.y < 0) {
+                star.x = Math.random() * canvas.width;
+                star.y = canvas.height;
+            }
+            star.alpha += star.twinkleSpeed * star.twinkleDirection;
+            if (star.alpha > 1 || star.alpha < 0.2) {
+                star.twinkleDirection *= -1;
+            }
+        }
+    }
+
+    function animateStars() {
+        updateStars();
+        drawStars();
+        requestAnimationFrame(animateStars);
+    }
+
+    window.addEventListener('resize', () => {
+        setCanvasSize();
+        createStars();
+    });
+
+    setCanvasSize();
+    createStars();
+    animateStars();
+
+    // Animate on Scroll
+    const scrollElements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    scrollElements.forEach(el => {
+        observer.observe(el);
+    });
+
+    // Navbar scroll behavior
+    const body = document.body;
+    const homeSection = document.getElementById('home');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > homeSection.offsetHeight - 50) {
+            body.classList.add('scrolled');
+        } else {
+            body.classList.remove('scrolled');
+        }
+    });
+
+    // Project Slider
+    const sliderWrapper = document.getElementById('project-slider-wrapper');
+    const slides = document.querySelectorAll('#projects .slide');
+    const totalSlides = slides.length;
+    let currentSlide = 0;
+
+    document.getElementById('next-slide').addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSliderPosition();
+    });
+
+    document.getElementById('prev-slide').addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSliderPosition();
+    });
+
+    function updateSliderPosition() {
+        const offset = -currentSlide * 100;
+        sliderWrapper.style.transform = `translateX(${offset}%)`;
+    }
+
+    // Education Slider
+    const eduContentSlides = document.querySelectorAll('.education-content');
+    const totalEduSlides = eduContentSlides.length;
+    let currentEduSlide = 0;
+
+    document.getElementById('next-edu-slide').addEventListener('click', () => {
+        currentEduSlide = (currentEduSlide + 1) % totalEduSlides;
+        updateEduSliderContent();
+    });
+
+    document.getElementById('prev-edu-slide').addEventListener('click', () => {
+        currentEduSlide = (currentEduSlide - 1 + totalEduSlides) % totalEduSlides;
+        updateEduSliderContent();
+    });
+
+    function updateEduSliderContent() {
+        eduContentSlides.forEach((slide, index) => {
+            if (index === currentEduSlide) {
+                slide.classList.remove('hidden');
+                setTimeout(() => slide.classList.add('active'), 10);
+            } else {
+                slide.classList.remove('active');
+                setTimeout(() => slide.classList.add('hidden'), 500);
+            }
+        });
+    }
+    
+    updateEduSliderContent();
+
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+});
+</script>

@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function setCanvasSize() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        // Adjust star density based on screen size
         numStars = Math.floor((canvas.width * canvas.height) / 7000);
     }
 
@@ -46,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
                 radius: Math.random() * 1.5 + 0.5,
-                alpha: Math.random() * 0.5 + 0.5, // Stars are not too transparent
+                alpha: Math.random() * 0.5 + 0.5,
                 speed: Math.random() * 0.2 + 0.1,
                 twinkleSpeed: Math.random() * 0.015,
                 twinkleDirection: 1,
@@ -68,14 +67,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateStars() {
         for (let i = 0; i < numStars; i++) {
             let star = stars[i];
-            // Drifting effect
             star.y -= star.speed;
             if (star.y < 0) {
                 star.x = Math.random() * canvas.width;
                 star.y = canvas.height;
             }
-
-            // Twinkling effect
             star.alpha += star.twinkleSpeed * star.twinkleDirection;
             if (star.alpha > 1 || star.alpha < 0.2) {
                 star.twinkleDirection *= -1;
@@ -168,13 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => slide.classList.add('active'), 10);
             } else {
                 slide.classList.remove('active');
-                // Wait for fade out before hiding
                 setTimeout(() => slide.classList.add('hidden'), 500);
             }
         });
     }
     
-    // Initialize first education slide
     updateEduSliderContent();
 
 
